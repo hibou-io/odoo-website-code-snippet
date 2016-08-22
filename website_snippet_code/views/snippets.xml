@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        <template id="assets_editor" inherit_id="website.assets_editor" name="Code Snippets">
+            <xpath expr="script[last()]" position="after">
+                <script type="text/javascript" src="/website_snippet_code/static/src/js/snippet_code.editor.js" />
+            </xpath>
+        </template>
+
+        <template id="assets_frontend_style" inherit_id="website.assets_frontend" name="Code Assets">
+            <xpath expr="link[last()]" position="after">
+                <link href="/website_snippet_code/static/src/lib/highlight/styles/idea.css" rel="stylesheet" type="text/css"/>
+            </xpath>
+        </template>
+
+        <template id="assets_frontend_script" inherit_id="website.assets_frontend" name="Code Assets">
+            <xpath expr="script[last()]" position="after">
+                <script type="text/javascript" src="/website_snippet_code/static/src/lib/highlight/highlight.pack.js" />
+                <script type="text/javascript" src="/website_snippet_code/static/src/js/snippet_code.js" />
+            </xpath>
+        </template>
+
+
+        <!-- Code Snippets -->
+        <template id="snippet_code" name="Code snippet">
+            <section class="snippet_code" contenteditable="False">
+                <div class="container">
+                    <div class="row">
+                        <pre class="code"><code class="python">def something():
+    pass</code></pre>
+                    </div>
+                </div>
+            </section>
+        </template>
+
+        <template id="code_place_into_bar" inherit_id="website.snippets" name="Code Place into bar">
+            <xpath expr="//div[@id='snippet_content']/div[@class='o_panel_body']" position="inside">
+                <t t-snippet="website_snippet_code.snippet_code"
+                   t-thumbnail="/website_snippet_code/static/src/img/code.png"/>
+            </xpath>
+        </template>
+
+        <template id="snippet_code_opt" inherit_id="website.snippets" name="Snippet Code Options">
+            <xpath expr="//div[@id='snippet_options']" position="inside">
+                <div data-js="snippet_code_editor" data-selector=".snippet_code">
+
+                </div>
+            </xpath>
+        </template>
+
+
+
+    </data>
+</openerp>
