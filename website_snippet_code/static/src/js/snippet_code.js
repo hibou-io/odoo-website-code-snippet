@@ -2,7 +2,7 @@ odoo.define('website_snippet_code.snippet_code', function (require) {
 "use strict";
 
     var apply = function($block) {
-        var $pre = $block.nearest('pre');
+        var $pre = $block.closest('pre');
         var original = $block.clone();
         original.css('display', 'none');
 
